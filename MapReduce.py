@@ -2,6 +2,9 @@ from mrjob.job import MRJob
 from mrjob.step import MRStep
 import os
 
+import time
+startTime = time.time()
+# Add multiplication thing
 
 class Algorithm1(MRJob):
 
@@ -14,6 +17,7 @@ class Algorithm1(MRJob):
             yield col, (0, row, value)
         elif filename == '.\matrix2.txt':
             yield row,(1,col,value)
+            
 
     # Reduce function
     def reduceFn(self, y, values):
@@ -28,6 +32,7 @@ class Algorithm1(MRJob):
         for (a, b, row) in rowVals:
             for (a, key, col) in colVals:
                 yield (b, key), int(row)*int(col)
+                
 
     # Key-value pair generation
     def keyValPair(self, key, value):
@@ -39,9 +44,11 @@ class Algorithm1(MRJob):
 
     # 'steps' function to run algorithms
     def steps(self):
+        print("---- %s seconds ----" % (time.time() - startTime))
         return [MRStep(mapper=self.mapFn,
                         reducer=self.reduceFn),
                 MRStep(mapper=self.keyValPair,
-                        reducer=self.addition)]
-
+                        reducer=self.addition)]                
+        
+        
 Algorithm1.run()
