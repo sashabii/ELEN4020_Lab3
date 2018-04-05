@@ -18,17 +18,19 @@
 	\maketitle
 	
 	\section{Introduction}
-	The objective of the lab was to perform matrix multipication using various frameworks and MapReduce. This was done by using the MrJob framework adapted to two different algorithms in the the Python language.
+	The objective of the lab was to perform matrix multipication using various frameworks and MapReduce. The MapReduce framework was introduced by Google to support distributed computing on large data sets onto clusters of computers. The data is replicated multiple times in parallel on the system for increased efficiency, reliability and availability. This was done by using the MrJob framework adapted to two different algorithms in the the Python language.
 	
 	
 	\section{Algorithms}
+	The reason for using the MapReduce framework is due to the benefits it provides. MapReduce has the ability to take a query over a data set, divide it, then run the query in parallel over multiple nodes. This benedits in removing the issue of small computers processing data too large to handle, using multiple servers and the Batch processing model.
+	
 	\subsection{Map}
 	The main purpose of the map function is to generate a key,value pair.  The map function takes individual tasks and transforms the input records into intermediate records, which can be processed by the multiplication algorithm. Each of these transformations occur in parallel. The map function shuffles the key, value pairs based on the first key to re-organize the output. 
 	
 	
 	
 	\subsection{Reduce}
-	The reduce function takes the re-organized data from the map function and performs matrix multiplication using the generated key,value pair.This is done by multiplying the values with the keys and storing them. The final value is the sum of the different products obtained in the previous step.
+	The reduce function takes the re-organized data from the map function and reduces them to a summarized data set, the desired output. The reduce function, in terms of this laboratory, performs matrix multiplication using the generated key,value pair.This is done by multiplying the values with the keys and storing them. The final value is the sum of the different products obtained in the previous step.
 	
 	
 	\subsection{Algorithm A}
@@ -86,6 +88,7 @@
 			\end{algorithmic}
 		\end{algorithm}
 	
+	\section{Results}
 	
 	
 \end{document}

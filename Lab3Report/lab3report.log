@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.5)  5 APR 2018 11:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.5)  5 APR 2018 12:50
 entering extended mode
 **./lab3report.tex
 (lab3report.tex
@@ -370,9 +370,9 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 46.
+(Font)              <7> on input line 48.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 46.
+(Font)              <5> on input line 48.
 [1{C:/Users/Nick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
@@ -380,12 +380,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (lab3report.aux) ) 
 Here is how much of TeX's memory you used:
  4062 strings out of 493303
- 68487 string characters out of 3130220
+ 68543 string characters out of 3130220
  139448 words of memory out of 3000000
  7592 multiletter control sequences out of 15000+200000
  32989 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,38p,394b,461s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,5n,38p,477b,461s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Nick/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dv
 ips/base/8r.enc}<C:/Users/Nick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmmi10.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX 2.9/fo
@@ -394,7 +394,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Nick/AppData/Local
 /Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Nick/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Nick/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on lab3report.pdf (1 page, 69230 bytes).
+Output written on lab3report.pdf (1 page, 69979 bytes).
 PDF statistics:
  31 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
