@@ -1,0 +1,91 @@
+\documentclass[twocolumn]{IEEEtran}
+
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[margin=0.7in,a4paper]{geometry}
+\graphicspath{{images/}}
+
+\title{ELEN4020A: Data Intensive Computing Lab 3}
+\author{Jared Gautier (820687), Nick Raal (793528), Sasha Berkowitz (818737), Arunima Pathania()}
+%\IEEEauthorblockN{School of Electrical and Information Engineering, University of the Witwatersrand} \ {ELEN4020: Data Intensive Computing}	
+
+
+\begin{document}
+	\maketitle
+	
+	\section{Introduction}
+	The objective of the lab was to perform matrix multipication using various frameworks and MapReduce. This was done by using the MrJob framework adapted to two different algorithms in the the Python language.
+	
+	
+	\section{Algorithms}
+	\subsection{Map}
+	The main purpose of the map function is to generate a key,value pair.  The map function takes individual tasks and transforms the input records into intermediate records, which can be processed by the multiplication algorithm. Each of these transformations occur in parallel. The map function shuffles the key, value pairs based on the first key to re-organize the output. 
+	
+	
+	
+	\subsection{Reduce}
+	The reduce function takes the re-organized data from the map function and performs matrix multiplication using the generated key,value pair.This is done by multiplying the values with the keys and storing them. The final value is the sum of the different products obtained in the previous step.
+	
+	
+	\subsection{Algorithm A}
+	
+	
+	\subsubsection{Mapper}
+	The mapper algorithm that was used 
+	
+	\begin{algorithm}
+		\caption{The mapper function}
+		\begin{algorithmic} 
+			\REQUIRE {Map function to produce and return key, value pairs}
+			\STATE
+			
+			\FOR{$value\_ A \leftarrow 0$ to $A$}
+			\STATE $k \leftarrow 1$ to $ B $
+			\STATE $((i,k), (A, j, value\_ A))$ for each value of $k$
+			\ENDFOR
+			
+			\FOR{$value\_ B \leftarrow 0$ to $B$}
+			\STATE $i \leftarrow 1$ to $ A $
+			\STATE $((i,k), (B, j, value\_ B))$ for each value of $i$
+			
+			\ENDFOR		
+			
+			
+			\RETURN $(key, value)$ pair
+			\end{algorithmic}
+			\end{algorithm}
+			
+	
+	
+	
+		
+	\subsubsection{Reducer}
+	
+		
+		\begin{algorithm}
+			\caption{The Reducer Function}
+			\begin{algorithmic} 
+				\REQUIRE {Uses output of Mapper function to perform matrix multiplication}
+				
+							
+				\FOR{$(i,k) \leftarrow 0$ to $A$}
+				
+				\STATE sort $(A, j, value\_ A)$ by $j$
+				\STATE sort $(B, j, value\_ B)$ by $j$
+				\STATE $value\_ A*j \leftarrow multiA$
+				\STATE $value\_ B*j \leftarrow multiB$
+				\STATE $ Answer \leftarrow  multiA + multiB$   
+				
+				\STATE Return $(i,k),Answer$
+				\ENDFOR		
+			
+			\end{algorithmic}
+		\end{algorithm}
+	
+	
+	
+\end{document}
