@@ -13,7 +13,7 @@ To run, execute the following command:
 
 <h4> Algorithm II </h4>
 
-Edit the Algorithm1.py file and set variables <i>matrix1</i> and <i>matrixFile2</i> in lines 6 & 7 to the 
+Edit the Algorithm2.py file and set variables <i>matrix1</i> and <i>matrixFile2</i> in lines 6 & 7 to the 
 file names containing the matrices you wish to multiply, <fileX.txt> and <fileY.txt>.
  
 To run, execute the following command: 
