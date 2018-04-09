@@ -14,6 +14,12 @@ class Algorithm1(MRJob):
 
     # Mapping function
     def mapFn(self, _, data):
+        
+        # Excluding first line of file
+        splitData = data.split()
+        if len(splitData) == 2:
+            return
+
         row, col, value = data.split()
         value = float(value)
         filename = os.environ['map_input_file']
