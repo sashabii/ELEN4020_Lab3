@@ -3,6 +3,7 @@
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{url}
 
 \usepackage{graphicx}
 \usepackage{caption}
@@ -32,13 +33,69 @@
 	\subsection{Reduce}
 	The reduce function takes the re-organized data from the map function and reduces them to a summarized data set, the desired output. The reduce function, in terms of this laboratory, performs matrix multiplication using the generated key,value pair.This is done by multiplying the values with the keys and storing them. The final value is the sum of the different products obtained in the previous step.
 	
-	
 	\subsection{Algorithm A}
+	The first algorithm uses the MrJobs MapReduce framework. The mapping function, \textit{mapFn} shown in algorithm 1, takes the input matrix \textit{.txt} files and generates the key, value pairs in terms of columns for matrix A, and the key, value pairs in terms of rows for matrix B. From these generated pairs, the reduce function, \textit{reduceFn} show in algorithm 2, appends the key, value pairs into an array, then multiplies the matricies. This multiplied value  is then added using the \textit{addition} function to get the final result.
+		
+		\begin{algorithm}
+			\caption{mapFn(\_ , line)}
+			\begin{algorithmic} 
+		
+				\REQUIRE {Mapping function to generate key, value pairs}
+				\STATE $row, col, value \leftarrow line.split$
+				
+				\STATE$filename \leftarrow os.environ["input file"] $
+				
+				\IF{filename = "matrix1.txt"}
+					\STATE{$yield$ $col , (0,row,value)$}
+					\ELSIF{filename = matrix2.txt}
+						\STATE{$yield$ $row,(1,col,value)$}
+				\ENDIF
+				
+			\end{algorithmic}
+		\end{algorithm}
+		
+		
+		
+		
+		
+		\subsubsection{Reducer}
+		
+		
+		\begin{algorithm}
+			\caption{reduceFn(y,value)}
+			\begin{algorithmic} 
+				\REQUIRE {Uses output of mapFn function to perform matrix multiplication}
+				
+				\STATE{rowVals[]}
+				\STATE{colVals[]}
+				
+				\FOR{$x \leftarrow 0$ to $values$}
+				
+				\IF{x[0] = 0}
+				\STATE{rowVals.append(x)}
+				\ENDIF
+				\IF{x[0] = 1}
+				\STATE{colVals.append(x)}
+				\ENDIF
+				
+				\FOR{$a,b,row \leftarrow 0$to $rowVals$}
+				\FOR{$a,key,col \leftarrow 0$to $colVals$}
+				\STATE{$yield$ $(b,key) , (int(row)*int(col))$}
+				
+				\ENDFOR
+				\ENDFOR
+			
+				\ENDFOR		
+				
+			\end{algorithmic}
+		\end{algorithm}
+		
 	
 	
-	\subsubsection{Mapper}
-	The mapper algorithm that was used 
 	
+	\subsection{Algorithm B}
+	
+
 	\begin{algorithm}
 		\caption{The mapper function}
 		\begin{algorithmic} 
@@ -90,5 +147,19 @@
 	
 	\section{Results}
 	
+	\subsection{Algorithm A}
+	For a 10 x 10 matrix multiplied by a 10 x 10 matrix, the algorithm took 1.226556 seconds to compute.
+	For a 100 x 100 matrix multiplied by a 100 x 100 matrix, the algorithm took 20.135463 seconds to compute.
 	
+	
+	\section{Unweighted Directed Graphs}
+	Directed graphs involve a series of interconnected nodes, the nodes are connected by edges. In order to calculate all of the groups of paths of length 3, an adjacency matrix data structure must be implemented. Where the adjacency matrix is given by a matrix of ones and zeroes, where ones indicate an edge between a vertex and 0s represent no connection. This can be implemented by means of an adjacency list data structure, which is a list of interconnected vertices that is similar to how a 2D array would be represented using data structures \cite{graph}. The preferable data structure would be the data list, this is because the space of the list would be 0(n+m), as opposed to the adjacency matrix which has a space  compexity of %0(n^{2}).
+	Once this data structure is implemented, finding the paths of length three would be searching the list for the links that have a length greater than or equal to three.
+
+	\begin{thebibliography}{12}
+		\bibitem{graph}
+		Author unknown. 2015. \textit{Directed and Undirected Graphs}. [ONLINE] Available at: \url{http://www.inf.ed.ac.uk/teaching/courses/cs2/LectureNotes/CS2Bh/ADS/lecture9.pdf} [Accessed 5 April 2018].
+	\end{thebibliography}
+
 \end{document}
+
