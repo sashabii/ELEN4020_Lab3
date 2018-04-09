@@ -1,21 +1,25 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 import os
+import re
 
 import time
 startTime = time.time()
-# Add multiplication thing
+
+# Setting input file names
+matrixFile1 = 'matrix1.txt'
+matrixFile2 = 'matrix2.txt'
 
 class Algorithm1(MRJob):
 
     # Mapping function
-    def mapFn(self, _, line):
-        row, col, value = line.split()
+    def mapFn(self, _, data):
+        row, col, value = data.split()
         value = float(value)
         filename = os.environ['map_input_file']
-        if filename == '.\matrix1.txt':
+        if filename == '.\\' + matrixFile1:
             yield col, (0, row, value)
-        elif filename == '.\matrix2.txt':
+        elif filename == '.\\' + matrixFile2:
             yield row,(1,col,value)
             
 
