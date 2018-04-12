@@ -162,7 +162,7 @@
 		\end{algorithm}
 	
 	\section{Results}
-	The results for each of the algorithms are shown below in table 1. From the table, it can be deduced that Algorithm B was more efficient in completing the calculations.
+	The results for each of the algorithms are shown below in table 1. From the table, it can be deduced that Algorithm B was more efficient in completing the calculations. This could be due to the \texttt{ReduceFn} function in Algorithm B having time complexity of $O(n)$, as opposed to the time complexity of $O{n^2}$ in Algorithm A.
 	
 \begin{table}[!h]
 	\centering
@@ -171,20 +171,22 @@
 	\begin{tabular}{|l|l|l|ll}
 		\cline{1-3}
 		\textbf{Size of matrix} & \textbf{Algorithm A} & \textbf{Algorithm B} &  &  \\ \cline{1-3}
-		10 x 10                 & 1.226556             & a                    &  &  \\ \cline{1-3}
-		100 x 100               & 20.135463            & b                    &  &  \\ \cline{1-3}
+		10 x 10                 & 1.226556             & 0.84565                    &  &  \\ \cline{1-3}
+		100 x 100               & 20.135463            & 11.35642                    &  &  \\ \cline{1-3}
 		1000 x 1000             & c                    & d                    &  &  \\ \cline{1-3}
 	\end{tabular}
 \end{table}
+
+The algorithm were tested using the Anaconda application on a Windows machine. It is assumed that delays were experienced as a result of this and the algorithms would run faster using the Linux environment.
 	
 	
 	\section{Unweighted Directed Graphs}
-	Directed graphs involve a series of interconnected nodes, the nodes are connected by edges. In order to calculate all of the groups of paths of length 3, an adjacency matrix data structure must be implemented. Where the adjacency matrix is given by a matrix of ones and zeroes, where ones indicate an edge between a vertex and 0s represent no connection. This can be implemented by means of an adjacency list data structure, which is a list of interconnected vertices that is similar to how a 2D array would be represented using data structures \cite{graph}. The preferable data structure would be the data list, this is because the space of the list would be 0(n+m), as opposed to the adjacency matrix which has a space  compexity of $0(n^{2})$.
+	Directed graphs involve a series of interconnected nodes, the nodes are connected by edges. In order to calculate all of the groups of paths of length 3, an adjacency matrix data structure must be implemented. Where the adjacency matrix is given by a matrix of ones and zeroes, where ones indicate an edge between a vertex and 0s represent no connection. This can be implemented by means of an adjacency list data structure, which is a list of interconnected vertices that is similar to how a 2D array would be represented using data structures \cite{graph}. The preferable data structure would be the data list, this is because the space of the list would be 0(n+m), as opposed to the adjacency matrix which has a space  complexity of $0(n^{2})$.
 	Once this data structure is implemented, finding the paths of length three would be searching the list for the links that have a length greater than or equal to three.
 
 
 \section{Conclusion}
-Algorithm B the desirable implementation for matrix multiplication because it was seen to be faster , this can be seen from the results section. The MapReduce framework was succsesfully implemented, this shows the parralelism improves the efficiency of any desired function. A solution to finding weights of three was found for directed graphs, this was done by using data lists.
+Algorithm B the desirable implementation for matrix multiplication because it was seen to be faster , this can be seen from the results section. The MapReduce framework was successfully implemented, this shows the parallelism improves the efficiency of any desired function. A solution to finding weights of three was found for directed graphs, this was done by using data lists.
 
 
 
